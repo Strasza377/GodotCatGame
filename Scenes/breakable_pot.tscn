@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://ddfmaglcjayhv"]
+
+[ext_resource type="Script" path="res://Scripts/breakable_pot.gd" id="1_68nk2"]
+[ext_resource type="Texture2D" uid="uid://fxsakr2hwc4b" path="res://Sprites/BreakablePot.png" id="1_im7vq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5ns5i"]
+size = Vector2(12, 9)
+
+[node name="BreakablePot" type="Area2D"]
+collision_layer = 4
+script = ExtResource("1_68nk2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_im7vq")
+hframes = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2.5)
+shape = SubResource("RectangleShape2D_5ns5i")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

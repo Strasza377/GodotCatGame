@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://t5fl6vwint52"]
+
+[ext_resource type="Script" path="res://Scripts/GameState.gd" id="1_6et13"]
+
+[node name="GameState" type="Node2D"]
+script = ExtResource("1_6et13")
+levels = Array[String](["res://Scenes/Levels/level_one.tscn", "res://Scenes/Levels/level_two.tscn", "res://Scenes/Levels/level_three.tscn", "res://Scenes/Levels/level_four.tscn", "res://Scenes/Levels/level_five.tscn", "res://Scenes/Levels/level_six.tscn", "res://Scenes/Levels/level_seven.tscn"])

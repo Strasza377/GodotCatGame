@@ -1,0 +1,57 @@
+[gd_scene load_steps=6 format=3 uid="uid://bbowf2qoscuk4"]
+
+[ext_resource type="Script" path="res://Scripts/level_prototype.gd" id="1_wjxue"]
+[ext_resource type="PackedScene" uid="uid://cupd0uj0bfhyr" path="res://Scenes/indoor_tile_map.tscn" id="2_a35ni"]
+[ext_resource type="PackedScene" uid="uid://54ybi0rpjjpx" path="res://Scenes/end_of_level.tscn" id="3_ph6vk"]
+[ext_resource type="PackedScene" uid="uid://p4d6xt5gqy2k" path="res://Scenes/basic_enemy.tscn" id="3_ygfa8"]
+[ext_resource type="PackedScene" uid="uid://ycreh7hhuw0o" path="res://Scenes/player.tscn" id="5_k4cau"]
+
+[node name="level_one" type="Node2D" node_paths=PackedStringArray("enemies", "player", "resetTimer")]
+script = ExtResource("1_wjxue")
+enemies = [NodePath("IndoorTileMap/Enemy")]
+player = NodePath("IndoorTileMap/Player")
+resetTimer = NodePath("ResetTimer")
+
+[node name="IndoorTileMap" parent="." instance=ExtResource("2_a35ni")]
+layer_1/tile_data = PackedInt32Array(196615, 131074, 9, 720903, 131074, 9, 196631, 131074, 9, 262167, 131074, 9, 327703, 131074, 9, 393239, 131074, 9, 458775, 131074, 9, 524311, 131074, 9, 589847, 131074, 9, 655383, 131074, 9, 720919, 131074, 9, 196616, 131074, 9, 196617, 131074, 9, 196618, 131074, 9, 196619, 131074, 9, 196620, 131074, 9, 196621, 131074, 9, 196622, 131074, 9, 196623, 131074, 9, 196624, 131074, 9, 196625, 131074, 9, 196626, 131074, 9, 196627, 131074, 9, 196628, 131074, 9, 196629, 131074, 9, 196630, 131074, 9, 720918, 131074, 9, 720917, 131074, 9, 720916, 131074, 9, 720915, 131074, 9, 720914, 131074, 9, 720913, 131074, 9, 720912, 131074, 9, 720908, 131074, 9, 720907, 131074, 9, 720906, 131074, 9, 720905, 131074, 9, 720904, 131074, 9, 720910, 131074, 9, 720911, 131074, 9, 720909, 131074, 9, 196614, 131074, 9, 262150, 131074, 9, 327686, 131074, 9, 393222, 131074, 9, 458758, 131074, 9, 524294, 131074, 9, 589830, 131074, 9, 655366, 131074, 9, 720902, 131074, 9, -1, 2, 10, 65535, 2, 10, 131071, 2, 10, 196607, 2, 10, 262143, 2, 10, 327679, 2, 10, 393215, 2, 10, 458751, 2, 10, 524287, 2, 10, 589823, 2, 10, 655359, 2, 10, 720895, 2, 10, 786431, 2, 10, 851967, 2, 10, 917503, 2, 10, 983039, 2, 10, 1048575, 2, 10, 983040, 2, 10, 983041, 2, 10, 983042, 2, 10, 983043, 2, 10, 983044, 2, 10, 983045, 2, 10, 983046, 2, 10, 983047, 2, 10, 983048, 2, 10, 983049, 2, 10, 983050, 2, 10, 983051, 2, 10, 983052, 2, 10, 983053, 2, 10, 983054, 2, 10, 983055, 2, 10, 983056, 2, 10, 983057, 2, 10, 983058, 2, 10, 983059, 2, 10, 983060, 2, 10, 983061, 2, 10, 983062, 2, 10, 983063, 2, 10, 983064, 2, 10, 983065, 2, 10, 983066, 2, 10, 983067, 2, 10, 983068, 2, 10, 983069, 2, 10, 983070, 2, 10, 917534, 2, 10, 851998, 2, 10, 786462, 2, 10, 720926, 2, 10, 655390, 2, 10, 589854, 2, 10, 524318, 2, 10, 458782, 2, 10, 393246, 2, 10, 327710, 2, 10, 262174, 2, 10, 196638, 2, 10, 131102, 2, 10, 65566, 2, 10, 30, 2, 10, -65506, 2, 10, -65536, 2, 10, -65535, 2, 10, -65534, 2, 10, -65533, 2, 10, -65532, 2, 10, -65531, 2, 10, -65530, 2, 10, -65529, 2, 10, -65528, 2, 10, -65527, 2, 10, -65526, 2, 10, -65525, 2, 10, -65524, 2, 10, -65523, 2, 10, -65522, 2, 10, -65521, 2, 10, -65520, 2, 10, -65519, 2, 10, -65518, 2, 10, -65517, 2, 10, -65516, 2, 10, -65515, 2, 10, -65514, 2, 10, -65513, 2, 10, -65512, 2, 10, -65511, 2, 10, -65510, 2, 10, -65509, 2, 10, -65508, 2, 10, -65507, 2, 10, 262154, 131074, 9, 327690, 131074, 9, 393226, 131074, 9, 393235, 131074, 9, 327699, 131074, 9, 262163, 131074, 9, 393227, 524290, 7, 393229, 524290, 7, 393233, 524290, 7, 393231, 655362, 7, 524299, 131074, 10, 524306, 131074, 10, 524304, 196610, 7, 524301, 196610, 7, 327701, 524290, 12)
+
+[node name="end_of_level" parent="IndoorTileMap" instance=ExtResource("3_ph6vk")]
+position = Vector2(343, 90)
+
+[node name="Enemy" parent="IndoorTileMap" instance=ExtResource("3_ygfa8")]
+position = Vector2(240, 120)
+flip = true
+
+[node name="RayCast2D" parent="IndoorTileMap/Enemy" index="2"]
+target_position = Vector2(120, 0)
+
+[node name="Player" parent="IndoorTileMap" instance=ExtResource("5_k4cau")]
+position = Vector2(138, 94)
+
+[node name="ResetTimer" type="Timer" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+process_mode = 3
+visible = false
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="CanvasLayer/Control"]
+layout_direction = 3
+layout_mode = 0
+offset_right = 250.0
+offset_bottom = 23.0
+text = "Press 'H' or Back Button for help"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="body_entered" from="IndoorTileMap/end_of_level" to="." method="_on_end_of_level_body_entered"]
+
+[editable path="IndoorTileMap/Enemy"]

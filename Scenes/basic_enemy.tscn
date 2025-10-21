@@ -1,0 +1,138 @@
+[gd_scene load_steps=12 format=3 uid="uid://p4d6xt5gqy2k"]
+
+[ext_resource type="Script" path="res://enemy.gd" id="1_5bdwn"]
+[ext_resource type="Texture2D" uid="uid://co3uvt8sm7jfj" path="res://Sprites/Lizard.png" id="1_51opm"]
+[ext_resource type="Texture2D" uid="uid://cn6lfoq4hkwxy" path="res://Sprites/guard_notice.png" id="3_uhrij"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4xbhf"]
+radius = 7.0
+
+[sub_resource type="Animation" id="Animation_txkqi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MainSprite:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_8este"]
+resource_name = "idle_down"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MainSprite:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_rlsjj"]
+resource_name = "idle_left"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MainSprite:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(2, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_iubyn"]
+resource_name = "idle_right"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MainSprite:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(3, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_h3kjc"]
+resource_name = "idle_up"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MainSprite:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5mwy6"]
+_data = {
+"RESET": SubResource("Animation_txkqi"),
+"idle_down": SubResource("Animation_8este"),
+"idle_left": SubResource("Animation_rlsjj"),
+"idle_right": SubResource("Animation_iubyn"),
+"idle_up": SubResource("Animation_h3kjc")
+}
+
+[sub_resource type="AudioStream" id="AudioStream_y4v7h"]
+
+[node name="Enemy" type="CharacterBody2D"]
+z_index = 1
+collision_layer = 4
+script = ExtResource("1_5bdwn")
+
+[node name="MainSprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_51opm")
+hframes = 4
+vframes = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_4xbhf")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(64, 0)
+collision_mask = 3
+collide_with_areas = true
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_5mwy6")
+}
+
+[node name="PatrolDestination" type="Marker2D" parent="."]
+
+[node name="DistractionDestination" type="Marker2D" parent="."]
+
+[node name="AlertSprite" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-2, -24)
+scale = Vector2(1.58333, 1.58333)
+texture = ExtResource("3_uhrij")
+centered = false
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStream_y4v7h")
